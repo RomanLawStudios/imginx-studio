@@ -3,77 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=1200, initial-scale=1">
-    <title>IMAGINX | THE WRITER'S GALLERY // ARCHIVE_HALL</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    <title>IMAGINX | THE ARCHIVE HALL // 3_PANES</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        :root { --noir-black: #050505; --engine-blue: #00d2ff; --industrial-gray: #1a1a1a; }
+        :root { --noir-black: #050505; --engine-blue: #00d2ff; --industrial-amber: #ffb400; }
         body { background: var(--noir-black); color: white; font-family: 'Space Grotesk', sans-serif; margin: 0; padding: 0; overflow: hidden; height: 100vh; }
         
-        .gallery-container { 
-            display: flex; height: 100vh; width: 100%; 
-            background: url('https://d15temsujkch0.cloudfront.net/ACP/output_images/job_1002261732_1771823082.jpg') no-repeat center center;
-            background-size: cover;
+        .hall-container { 
+            height: 100vh; width: 100%; position: relative;
+            background: url('https://d15temsujkch0.cloudfront.net/ACP/output_images/job_1002262733_1771824811.jpg') no-repeat center center;
+            background-size: cover; display: flex; align-items: center; justify-content: center;
         }
-        .overlay-blur { 
-            width: 100%; height: 100%; background: rgba(5,5,5,0.85); backdrop-filter: blur(10px);
+        .hall-blur { 
+            width: 100%; height: 100%; background: rgba(5,5,5,0.8); backdrop-filter: blur(15px);
             display: flex; flex-direction: column; align-items: center; justify-content: center;
         }
 
-        .header-hud { position: absolute; top: 50px; left: 60px; font-family: 'Syncopate'; font-size: 10px; letter-spacing: 10px; color: var(--engine-blue); }
+        .header-hud { position: absolute; top: 60px; text-align: center; }
+        .header-hud h1 { font-family: 'Syncopate'; font-size: 14px; letter-spacing: 12px; color: var(--engine-blue); margin: 0; }
 
-        /* THE THREE VERTICAL PANES */
-        .panes-wrapper { display: flex; gap: 40px; height: 70vh; width: 90%; max-width: 1400px; }
+        .pane-system { display: flex; gap: 30px; width: 90%; max-width: 1400px; height: 75vh; margin-top: 40px; }
         
         .glass-pane { 
-            flex: 1; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(0, 210, 255, 0.1); 
-            position: relative; overflow: hidden; cursor: pointer; transition: 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-            display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 60px;
+            flex: 1; position: relative; overflow: hidden; cursor: pointer;
+            background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(0, 210, 255, 0.1);
+            transition: 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+            display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 80px;
+            text-decoration: none; color: white;
         }
         .glass-pane:hover { 
-            background: rgba(0, 210, 255, 0.05); border-color: var(--engine-blue); 
-            transform: translateY(-10px); box-shadow: 0 0 80px rgba(0, 210, 255, 0.2);
+            flex: 1.4; background: rgba(0, 210, 255, 0.05); border-color: var(--engine-blue);
+            box-shadow: 0 0 100px rgba(0, 210, 255, 0.2);
         }
 
-        .pane-label { font-family: 'Syncopate'; font-size: 10px; letter-spacing: 5px; color: white; z-index: 10; text-align: center; }
-        .pane-num { font-family: 'Syncopate'; font-size: 8px; opacity: 0.3; letter-spacing: 4px; margin-bottom: 15px; }
+        .pane-info { text-align: center; z-index: 10; pointer-events: none; }
+        .pane-num { font-family: 'Syncopate'; font-size: 8px; letter-spacing: 4px; opacity: 0.3; margin-bottom: 20px; }
+        .pane-label { font-family: 'Syncopate'; font-size: 11px; letter-spacing: 6px; font-weight: 700; }
 
-        /* THE PROGRESS BAR FOR PANE 03 */
-        .progress-bay { width: 60%; height: 2px; background: #222; margin-top: 20px; position: relative; overflow: hidden; }
-        .progress-fill { position: absolute; height: 100%; background: var(--engine-blue); width: 40%; animation: slide 3s infinite linear; }
+        .progress-bar { width: 120px; height: 2px; background: #222; margin: 30px auto 0; position: relative; overflow: hidden; }
+        .progress-fill { position: absolute; height: 100%; background: var(--industrial-amber); width: 40%; animation: slide 3s infinite linear; }
         @keyframes slide { from { left: -100%; } to { left: 100%; } }
 
-        .btn-portal { position: absolute; bottom: 50px; right: 60px; color: white; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); padding: 15px 30px; font-size: 9px; font-family: 'Syncopate'; letter-spacing: 4px; transition: 0.3s; }
-        .btn-portal:hover { background: white; color: black; }
+        .btn-return { position: absolute; bottom: 40px; right: 60px; color: white; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); padding: 15px 30px; font-size: 9px; font-family: 'Syncopate'; letter-spacing: 4px; transition: 0.3s; }
+        .btn-return:hover { background: white; color: black; }
     </style>
 </head>
 <body>
 
-    <div class="gallery-container">
-        <div class="overlay-blur">
-            <div class="header-hud">THE_ARCHIVE_HALL // GENESIS_ACTIVE</div>
-            
-            <div class="panes-wrapper">
-                <!-- PANE 01: WRITER SUBMISSIONS -->
-                <div class="glass-pane" onclick="location.href='#submissions'">
-                    <div class="pane-num">ARCHIVE_01</div>
-                    <div class="pane-label">WRITER_SUBMISSIONS</div>
-                </div>
+    <div class="hall-container">
+        <div class="hall-blur">
+            <div class="header-hud">
+                <h1>THE_ARCHIVE_HALL</h1>
+            </div>
 
-                <!-- PANE 02: ROMAN LAW STUDIOS -->
-                <div class="glass-pane" onclick="location.href='#creation'">
-                    <div class="pane-num">ARCHIVE_02</div>
-                    <div class="pane-label">THE_CREATION_OF_ROMAN_LAW</div>
+            <div class="pane-system">
+                <!-- PANE 01: WRITER SUBMISSIONS -->
+                <a href="archive-01.html" class="glass-pane">
+                    <div class="pane-info">
+                        <div class="pane-num">SECTION_01</div>
+                        <div class="pane-label">WRITER_SUBMISSIONS</div>
+                    </div>
+                </a>
+
+                <!-- PANE 02: THE CREATION OF ROMAN LAW -->
+                <div class="glass-pane" style="cursor: default;">
+                    <div class="pane-info">
+                        <div class="pane-num">SECTION_02</div>
+                        <div class="pane-label">ROMAN_LAW_STUDIOS</div>
+                    </div>
                 </div>
 
                 <!-- PANE 03: IN-PROGRESS -->
-                <div class="glass-pane" style="cursor: default; opacity: 0.5;">
-                    <div class="pane-num">CALIBRATION_03</div>
-                    <div class="pane-label" style="color:#666;">IN-PROGRESS</div>
-                    <div class="progress-bay"><div class="progress-fill"></div></div>
+                <div class="glass-pane" style="cursor: default; opacity: 0.4;">
+                    <div class="pane-info">
+                        <div class="pane-num">SECTION_03</div>
+                        <div class="pane-label">IN-PROGRESS</div>
+                        <div class="progress-bar"><div class="progress-fill"></div></div>
+                    </div>
                 </div>
             </div>
 
-            <a href="index.html" class="btn-portal">[[ RETURN_TO_SCRIBE ]]</a>
+            <a href="index.html" class="btn-return">[[ RETURN_TO_PORTAL ]]</a>
         </div>
     </div>
 
