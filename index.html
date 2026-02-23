@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200, initial-scale=1">
+    <title>IMAGINX | ROMAN LAW STUDIOS // UPGRADE_PROTOCOL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syncopate:wght@400;700&family=Crimson+Pro:italic,wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --noir-black: #050505; --engine-blue: #00d2ff; --industrial-red: #ff3e3e; }
+        body { background: var(--noir-black); color: white; font-family: 'Space Grotesk', sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
+        
+        /* THE STUDIO SHUTTER (VISUAL PRESTIGE) */
+        .shutter-hero { 
+            height: 60vh; width: 100%; position: relative; overflow: hidden;
+            border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+        }
+        .shutter-img { 
+            width: 100%; height: 100%; object-fit: cover; opacity: 0.6; 
+            filter: grayscale(0.5) contrast(1.2);
+        }
+        .shutter-overlay { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, transparent, var(--noir-black));
+            display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 40px;
+        }
+
+        /* STATUS HUD */
+        .status-badge { 
+            font-family: 'Syncopate'; font-size: 10px; letter-spacing: 5px; color: var(--industrial-red); 
+            border: 1px solid var(--industrial-red); padding: 10px 25px; margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+
+        /* THE SUBMISSION INTERFACE */
+        .portal-main { max-width: 900px; margin: 0 auto; padding: 60px 20px; text-align: center; }
+        .portal-title { font-family: 'Syncopate'; font-size: 1.2rem; letter-spacing: 10px; margin-bottom: 15px; }
+        .portal-desc { font-size: 12px; opacity: 0.5; letter-spacing: 3px; line-height: 2; margin-bottom: 60px; }
+
+        .submission-box { 
+            background: rgba(255,255,255,0.02); border: 1px solid rgba(0,210,255,0.1); 
+            padding: 40px; border-radius: 2px; text-align: left;
+        }
+        .input-label { font-family: 'Syncopate'; font-size: 8px; letter-spacing: 4px; opacity: 0.4; margin-bottom: 15px; display: block; }
+        .scribe-textarea { 
+            width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: white; font-family: 'Crimson Pro', serif; font-size: 22px; line-height: 1.6;
+            height: 200px; outline: none; resize: none; margin-bottom: 30px; transition: 0.3s;
+        }
+        .scribe-textarea:focus { border-bottom: 1px solid var(--engine-blue); }
+
+        .btn-submit-signal { 
+            width: 100%; background: var(--engine-blue); color: black; border: none; 
+            padding: 25px; font-family: 'Syncopate'; font-size: 10px; font-weight: 800; 
+            letter-spacing: 8px; cursor: pointer; transition: 0.4s;
+        }
+        .btn-submit-signal:hover { transform: translateY(-3px); box-shadow: 0 0 50px rgba(0,210,255,0.4); }
+
+        /* TREASURY FOOTER */
+        .treasury-footer { 
+            margin-top: 100px; padding: 60px; border-top: 1px solid rgba(255,255,255,0.05);
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center;
+        }
+        .stat-label { font-family: 'Syncopate'; font-size: 8px; opacity: 0.3; letter-spacing: 4px; }
+        .stat-val { font-size: 14px; letter-spacing: 2px; color: var(--engine-blue); margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="shutter-hero">
+        <img src="![](https://d15temsujkch0.cloudfront.net/ACP/output_images/job_1002259248_1771819643.jpg)" class="shutter-img">
+        <div class="shutter-overlay">
+            <div class="status-badge">IMAGINX_CORE_V2 // UPGRADING</div>
+        </div>
+    </div>
+
+    <div class="portal-main">
+        <h1 class="portal-title">THE_TREASURY_SUBMISSION</h1>
+        <p class="portal-desc">
+            THE IMAGINX ENGINE IS CURRENTLY UNDERGOING NEURAL_REFLEX CALIBRATION.<br>
+            DURING THIS UPGRADE, WE ARE OPENING THE PORTAL FOR LEGACY SUBMISSIONS.<br><br>
+            <span style="color:white;">SCRIBE YOUR LORE BELOW FOR A CHANCE TO BE FEATURED IN THE GALLERY AND RECEIVE A TREASURY DRAW.</span>
+        </p>
+
+        <div class="submission-box">
+            <span class="input-label">[[ SIGNAL_INPUT_PROSE ]]</span>
+            <textarea id="loreInput" class="scribe-textarea" placeholder="Enter your vision here... (District/Genre selection is automatic)"></textarea>
+            
+            <span class="input-label">[[ X_TWITTER_HANDLE ]]</span>
+            <input type="text" id="handleInput" style="width:100%; background:transparent; border:none; border-bottom:1px solid rgba(255,255,255,0.1); color:white; font-family:'Syncopate'; font-size:10px; outline:none; margin-bottom:40px; padding-bottom:10px;" placeholder="@HANDLE">
+
+            <button class="btn-submit-signal" onclick="submitToLedger()">SUBMIT_SIGNAL_TO_VAULT</button>
+        </div>
+    </div>
+
+    <div class="treasury-footer">
+        <div><div class="stat-label">TREASURY_STATUS</div><div class="stat-val">ACTIVE</div></div>
+        <div><div class="stat-label">GENESIS_BATCH</div><div class="stat-val">PROCESSING...</div></div>
+        <div><div class="stat-label">EXPOSURE_MULTIPLIER</div><div class="stat-val">1.402x</div></div>
+    </div>
+
+    <script>
+        function submitToLedger() {
+            const lore = document.getElementById('loreInput').value;
+            const handle = document.getElementById('handleInput').value;
+            if(!lore || !handle) { alert("ERROR: INCOMPLETE_SIGNAL"); return; }
+            
+            // This is where the writer's data is logged for your competition.
+            console.log("SIGNAL_ARCHIVED:", { lore, handle, time: new Date().toISOString() });
+            alert("SIGNAL_SECURED. YOUR LORE IS NOW IN THE TREASURY QUEUE.");
+            
+            document.getElementById('loreInput').value = "";
+            document.getElementById('handleInput').value = "";
+        }
+    </script>
+</body>
+</html>
